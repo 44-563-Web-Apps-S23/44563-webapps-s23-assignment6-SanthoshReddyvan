@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title>Painting Story</title>
+ </head>
+<body>
+
+<h2>Painter Entry - Santhosh Reddy</h2>
+
+<form>
+    <label for="Painter">The hidden Painter name </label>
+    <input type ="password" id="Painter" name="Painter" value="Monet"> <br>
+
+    <label for="guessPainter">Guess the Painter</label>
+    <input type ="text" id="guessPainter" name="guessPainter" autofocus> <br>
+
+    <input type="button" onclick="checkPainter()" value="Check the guess">
+</form>
+
+
+<p id="result">The Count of good and oops Guess</p>
+
+<script> 
+var good = 0;
+var oops = 0;
+function checkPainter (){
+    
+    
+    console.log("Getting form values")
+    PainterName = document.getElementById("Painter").value
+    guesspaintername = document.getElementById("guessPainter").value
+    confirmed = confirm("Are these the values? "+PainterName+" "+guesspaintername)
+    
+    out = document.getElementById("result")
+    if(PainterName==guesspaintername){
+        alert("You got it right")
+        good = good + 1
+        out.innerHTML = "Correct Answer: "+good+" "+"Wrong Answer: "+oops;
+    } else {
+        alert("Sorry")
+        oops = oops + 1
+        out.innerHTML = "Correct Answer: "+good+" "+"Wrong Answer: "+oops;
+    }
+}
+</script>
+<div class="container-fluid">
+    <img src="images/Abelia(1).jpg" class="img-fluid" id="image" alt="Abelia", onclick=selectImage() height=100, width=100>   
+</div>
+<script>
+    myImage =1
+    function selectImage(){
+        switch(myImage){
+            case 1:
+                document.getElementById("image").src="images/Abelia(1).jpg";
+                myImage++;
+                break
+            case 2:
+                document.getElementById("image").src="images/Nemesia";
+                myImage++;
+                break;
+            case 3:
+                document.getElementById("image").src="images/Vessinium";
+                myImage=1
+                break;
+        }
+    }
+</script>
+</body>
+</html> 
